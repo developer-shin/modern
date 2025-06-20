@@ -61,3 +61,8 @@ eb-package.zip
 # Do NOT ignore your app's source 'static/' directory.
 # Ensure this matches the `STATIC_ROOT` setting in your settings.py
 staticfiles/
+
+# --- User-Uploaded Media Files ---
+# Ignore the directory for user-uploaded files during local development.
+# Ensure this matches the `MEDIA_ROOT` setting in your settings.py
+media/
