@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  # This is your Django application
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    # The volumes directive syncs your code on Windows into the container
+    volumes:
+      - .:/app
+    # The ports directive forwards port 8000, just like your Vagrantfile
+    ports:
+      - "8000:8000"
+    # This makes sure the database starts before your web app
+    depends_on:
+      - db
+    # Environment variables for Django settings.py
+    environment:
+      - DB_NAME=postgres
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+      - DB_HOST=db
+
+  # This is your PostgreSQL database service
+  db:
+    image: postgres:15
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    # Using trust auth method for simple local development
+    environment:
+      - "POSTGRES_HOST_AUTH_METHOD=trust"
+
+volumes:
+  # This creates a persistent volume for your database data
+  postgres_data:
