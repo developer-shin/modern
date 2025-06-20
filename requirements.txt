@@ -1,4 +1,11 @@
+# requirements.txt
+
 # A modern, secure, and supported set of dependencies
 django~=5.0
 djangorestframework~=3.15
 psycopg2-binary~=2.9
+
+# Code Quality & Formatting
+black~=24.4
+flake8~=7.0
+flake8-black~=0.3

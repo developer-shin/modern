@@ -1,0 +1,36 @@
+# pyproject.toml
+
+[tool.black]
+# Set the line length that black will enforce.
+line-length = 88
+# Tell black to target a modern Python version.
+target-version = ['py311']
+# Exclude directories that don't need formatting.
+exclude = '''
+/(
+    \.git
+  | \.venv
+  | \.tox
+  | build
+  | dist
+  | migrations
+)/
+'''
+
+[tool.flake8]
+# Set the line length for flake8 to match black.
+max-line-length = 88
+# Tell flake8 to use black for style checks.
+check-format = true
+# List of errors/warnings to ignore, formatted as a TOML array of strings.
+ignore = ["E501", "W503"]
+# Exclude directories that don't need linting, also as a TOML array.
+exclude = [
+    ".tox",
+    ".git",
+    "*/migrations/*",
+    "*/static/CACHE/*",
+    "docs",
+    "node_modules",
+    "venv",
+]
