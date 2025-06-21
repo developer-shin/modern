@@ -1,0 +1,68 @@
+# --- General ---
+# Environment variables
+# Never commit secrets!
+.env
+.env.*
+
+# Log files
+*.log
+logs/
+
+# --- Python & Django ---
+# Byte-compiled / optimized files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+pip-wheel-metadata/
+  
+# SQLite Database
+# The production database is Postgres in Docker, this is for local testing if needed
+db.sqlite3
+db.sqlite3-journal
+
+# Test & coverage reports
+.coverage
+.coverage.*
+nosetests.xml
+coverage.xml
+htmlcov/
+.pytest_cache/
+.tox/
+
+# Translations
+*.mo
+
+# --- IDE / Editor ---
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# --- Docker ---
+# Ignore the local Docker-managed PostgreSQL data directory if it ends up here
+# Though it's usually managed outside the project root
+postgres_data/
+
+# --- Deployment ---
+# AWS Elastic Beanstalk package
+eb-package.zip
+
+# --- Generated Static Files ---
+# IMPORTANT: This ignores the directory created by the 'collectstatic' command.
+# Do NOT ignore your app's source 'static/' directory.
+# Ensure this matches the `STATIC_ROOT` setting in your settings.py
+staticfiles/
+
+# --- User-Uploaded Media Files ---
+# Ignore the directory for user-uploaded files during local development.
+# Ensure this matches the `MEDIA_ROOT` setting in your settings.py
+media/
